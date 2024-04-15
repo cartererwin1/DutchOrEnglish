@@ -1,10 +1,7 @@
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import javafx.util.Pair;
 
@@ -46,9 +43,8 @@ public class lab3 {
                 tree.addChild(DTL(exk,attributes −A,ex)) . Recursively build the child nodes
             return tree 
         */
-        String fileName = "examples.txt";
         ArrayList<Pair<String, Boolean[]>> tuples = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(exampleFileName))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] words = line.split("\\|");
@@ -73,15 +69,37 @@ public class lab3 {
                 tuples.add(tuple);
             }
             //calculate entropy of each test
-            for(Pair<String, Boolean[]> pair : tuples) {
-                Boolean[] bools = pair.getValue();
-                
+            Double[] entropies = new Double[3];
+            for(int attribute = 0; attribute < entropies.length; attribute++) {
+                int positives = 0;
+                int negatives = 0;
+                for(int i = 0; i < tuples.size(); i++) {
+                    if(tuples.get(i).getValue()[attribute]) {
+                        positives++;
+                    } else {
+                        negatives++;
+                    }
+                } 
+                double probOfPositive = (double) positives/(positives+negatives);
+                double probOfNegative = (double) negatives/(positives+negatives);
+                entropies[attribute] = (-1 * probOfPositive * (Math.log(probOfPositive) / Math.log(2)) ) + ( -1 * (double) (probOfNegative) * (Math.log(probOfNegative) / Math.log(2)) );
             }
-            Boolean[] bools = tuples.get(0).getValue();
-            
+            for (Double double1 : entropies) {
+                System.out.println(double1);
+            }
+        
+            DecisionTree tree = new DecisionTree(tuples);
+            tree.attributeSplit(0);
+            System.out.println(tree);       
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
+    }
+    public static double calculateEntropy() {
+        return 0;
+    }
+    public static double calculateRemainder() {
+        return 0;
     }
 
 
