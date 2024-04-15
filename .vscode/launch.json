@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "lab",
+            "request": "launch",
+            "mainClass": "lab",
+            "projectName": "lab3_ccf319a4",
+            "args": "examples.txt"
+        },
+        {
+            "type": "java",
+            "name": "lab3",
+            "request": "launch",
+            "mainClass": "lab3",
+            "projectName": "lab3_ccf319a4",
+            "args": [
+                "train",
+                "examples.txt",
+                "hypothesisout.txt",
+                "dt"
+            ]
+        }
+    ]
+}
