@@ -20,11 +20,17 @@
             "mainClass": "lab3",
             "projectName": "lab3_ccf319a4",
             "args": [
-                "train",
+                /*"train",
                 "examples.txt",
-                "hypothesisout.txt",
+                "best.model",
                 "dt"
+                */
+                "predict",
+                "best.model",
+                "input.txt"
             ]
+            
+            
         }
     ]
 }

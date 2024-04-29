@@ -1,0 +1,30 @@
+My features are:
+Contains:
+the
+uw
+aa
+het
+ion
+and
+I chose them based on looking through a classmates datafile and seeing what was always consistent in dutch and never in english
+"uw and aa" and never show up in english
+My max depth is the number of attributes I have (6).
+My DT learning algorithm takes all of the data into the root node, then tests all attributes to see which splits the 
+data most evenly. These two sets will become the children of the root node. This follows recursively until either
+max depth(N=6), there is no data left to split, or if all of the data is the same (nl or en)
+i tested this input:
+description languages. In 2005, the 1985 paper in which the Yale shooting scenario was first 
+zijn de loketten van dit station gesloten en is het een stopplaats geworden. Voor de 
+tuples. A decision tree is a flow-chart-like structure, where each internal (non-leaf) node denotes a 
+aankoop van allerlei vervoerbewijzen kan men bij voorkeur terecht aan de biljettenautomaat die ter beschikking 
+werd een nieuw stationsgebouw, ontworpen door architect Paul Nouille, in gebruik genomen. De dienstwoning van 
+het aa uw 
+and get this output: 
+en
+nl
+en
+nl
+nl
+nl
+The boosting works by training on a tree, seeing how accurate it is, then adjust the weights on each of 
+the datapoints and re run the tree. Until an accurate tree is created. This takes about 3 trees to reach that tree.
