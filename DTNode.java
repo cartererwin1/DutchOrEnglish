@@ -2,7 +2,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/*
+ * The class representing a single node of a DecisionTree. Each node contains vectors of data
+ */
 public class DTNode implements Serializable {
     private ArrayList<Pair<String, Boolean[]>> set;
     private DTNode leftChild;
